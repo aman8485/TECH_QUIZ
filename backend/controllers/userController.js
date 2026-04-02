@@ -1,4 +1,4 @@
-import user from "../model/user.js";
+import User from "../model/User.js";
 import { getAuth } from "@clerk/express";
 
 //to get stats of a user
@@ -10,8 +10,8 @@ export const getStats=async(req,res)=>{
                 message:"Unauthorized"
             });
         }
-        const totaluser=await user.countDocuments();
-        const loggedInuser=await user.countDocuments({
+        const totaluser=await User.countDocuments();
+        const loggedInuser=await User.countDocuments({
             isLoggedIn:true
         });
 
