@@ -10,7 +10,7 @@ export const getStats=async(req,res)=>{
                 message:"Unauthorized"
             });
         }
-        const totaluser=await User.countDocuments();
+        const totalUser=await User.countDocuments();
         const loggedInuser=await User.countDocuments({
             isLoggedIn:true
         });
@@ -18,7 +18,7 @@ export const getStats=async(req,res)=>{
         res.json({
             totaluser,
             loggedInUser:loggedInUser,
-            loggedInPercentage:totaluser > 0 ? ((loggedInUser/totaluser)*100).toFixed(2) : "0,.00"
+            loggedInPercentage:totalUser > 0 ? ((loggedInUser/totalUser)*100).toFixed(2) : "0,.00"
         });
 
     } 
