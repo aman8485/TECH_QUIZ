@@ -16,7 +16,7 @@ export const getStats=async(req,res)=>{
         });
 
         res.json({
-            totaluser,
+            totalUser,
             loggedInUser:loggedInUser,
             loggedInPercentage:totalUser > 0 ? ((loggedInUser/totalUser)*100).toFixed(2) : "0,.00"
         });
