@@ -1,5 +1,5 @@
 import { ClerkExpressWithAuth } from "@clerk/clerk-sdk-node";
-import User from "../model/user.js";
+import User from "../model/User.js";
 
 export const protect = ClerkExpressWithAuth();
 
