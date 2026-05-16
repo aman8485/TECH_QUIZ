@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route,Routes,useLocation,Link} from 'react-router-dom';
 import Home from './pages/Home';
-import Dashboardpage from './pages/Dashboardpage';
+import DashboardPage from './pages/DashboardPage';
 import { useUser } from '@clerk/react';
 import ListPage from './pages/ListPage';
 
@@ -55,7 +55,7 @@ const App = () => {
 
 <Route path="/dashboard" element ={
   <RequireAuth>
-    <Dashboardpage/>
+    <DashboardPage/>
   </RequireAuth>
 }
 />
