@@ -10,8 +10,12 @@ import { clerkWebhook } from "./controllers/webhook.js";
 const app=express();
 const PORT=process.env.PORT;
 //MIDDLEWARES
+// app.use(cors({
+//   origin: true,
+//   credentials: true
+// }));
 app.use(cors({
-  origin: true,
+  origin: ["https://tech-quiz-fmdx.vercel.app"],
   credentials: true
 }));
 app.use(clerkMiddleware());
