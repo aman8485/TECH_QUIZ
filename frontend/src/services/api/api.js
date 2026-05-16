@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useAuth } from '@clerk/clerk-react';
 
-const BASE_URL = 'http://localhost:8080/api';
+const BASE_URL='https://tech-quiz1.onrender.com/api';
 
 // axios instance
 const apiClient = axios.create({

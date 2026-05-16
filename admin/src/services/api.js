@@ -1,5 +1,5 @@
 import {useAuth} from '@clerk/react';
-const BASE_URL='http://localhost:8080/api';
+const BASE_URL='https://tech-quiz1.onrender.com/api';
 
 export const apiRequest = async (
   endpoint,
