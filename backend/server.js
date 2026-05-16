@@ -6,16 +6,21 @@ import { connectDB } from './config/db.js';
 import userRoutes from './routes/user.js';
 import adminRoutes from './routes/admin.js';
 import resultRoutes from './routes/result.js';
+import { clerkWebhook } from "./controllers/webhook.js";
 const app=express();
 const PORT=process.env.PORT;
-
 //MIDDLEWARES
-
 app.use(cors({
   origin: true,
   credentials: true
 }));
 app.use(clerkMiddleware());
+
+app.post(
+  "/webhook",
+  express.raw({ type: "application/json" }),
+  clerkWebhook
+);
 
 app.use(express.json());
 app.use("/api/users", userRoutes);

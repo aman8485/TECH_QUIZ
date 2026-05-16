@@ -1,6 +1,5 @@
 import User from "../model/User.js";
 import { getAuth } from "@clerk/express";
-
 //to get stats of a user
 export const getStats=async(req,res)=>{
     try {
@@ -10,16 +9,31 @@ export const getStats=async(req,res)=>{
                 message:"Unauthorized"
             });
         }
-        const totalUser=await User.countDocuments();
-        const loggedInuser=await User.countDocuments({
-            isLoggedIn:true
-        });
+        // const totalUser=await User.countDocuments();
+        // const loggedInuser=await User.countDocuments({
+        //     isLoggedIn:true
+        // });
 
-        res.json({
-            totalUser,
-            loggedInUser:loggedInUser,
-            loggedInPercentage:totalUser > 0 ? ((loggedInUser/totalUser)*100).toFixed(2) : "0,.00"
-        });
+        // res.json({
+        //     totalUser,
+        //     loggedInUser:loggedInUser,
+        //     loggedInPercentage:totalUser > 0 ? ((loggedInUser/totalUser)*100).toFixed(2) : "0,.00"
+        // });
+
+        const totalUser = await User.countDocuments();
+
+const loggedInUser = await User.countDocuments({
+  isLoggedIn: true
+});
+
+res.json({
+  totalUser,
+  loggedInUser,
+  loggedInPercentage:
+    totalUser > 0
+      ? ((loggedInUser / totalUser) * 100).toFixed(2)
+      : "0.00",
+});
 
     } 
     catch (err) {

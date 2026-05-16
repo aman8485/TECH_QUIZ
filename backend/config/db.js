@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
-  
-    await mongoose.connect("mongodb+srv://dixitaman8485_db_user:mVOv6qBRbmhypH8R@cluster0.9xty7bx.mongodb.net/QuizWeb")
-    .then(()=>{
-      console.log("DB CONNECTED")
-    })
-  
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("DB CONNECTED ");
+  } catch (error) {
+    console.log("DB ERROR ", error.message);
+  }
 };
