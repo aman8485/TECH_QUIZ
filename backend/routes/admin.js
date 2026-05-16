@@ -1,6 +1,12 @@
 import express from 'express';
-import { getStats } from '../controllers/userController.js';
-import { deleteQuiz, getAllQuizzes, uploadQuiz } from '../controllers/aadminController.js';
+
+import {
+  getStats,
+  deleteQuiz,
+  getAllQuizzes,
+  uploadQuiz
+} from '../controllers/aadminController.js';
+
 import { isAdmin, protect } from '../middleware/auth.js';
 
 const router = express.Router();
